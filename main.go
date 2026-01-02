@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"time"
 
 	"github.com/briandowns/spinner"
@@ -32,11 +33,13 @@ _________ _______ _________ _       _______
 `
 
 func main() {
-	s := spinner.New(spinner.CharSets[9], 100*time.Millisecond)
-	s.Start()                                                  
-	time.Sleep(4 * time.Second)                                
+	s := spinner.New(spinner.CharSets[17], 100*time.Millisecond)
+	s.Start()
+	time.Sleep(2 * time.Second)
 	s.Stop()
-	display("head")
+	
+	output := getRandomOutput()
+	display(output)
 }
 
 func display(output string) {
@@ -49,4 +52,14 @@ func display(output string) {
 		fmt.Println("Soemthing Went Wrong")
 	}
 
+}
+
+func getRandomOutput() string  {
+	rand.Seed(time.Now().UnixNano())
+
+	if rand.Intn(2) == 0 {
+		return "head"
+	} else {
+		return "tails"
+	}
 }
