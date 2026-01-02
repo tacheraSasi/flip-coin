@@ -1,5 +1,9 @@
 package main
 
+import (
+	"fmt"
+)
+
 const asciiHead = `
 _______  _______  ______  
 |\     /|(  ____ \(  ___  )(  __  \ 
@@ -25,10 +29,18 @@ _________ _______ _________ _       _______
 `
 
 func main(){
-	println("flippp")
+	display("head")
 }
 
 
-func display(){
+func display(output string){
+	switch output {
+		case "head":
+			fmt.Printf(asciiHead)
+		case "tails":
+			fmt.Printf(asciiTails)
+		default:
+			fmt.Println("Soemthing Went Wrong")
+	}
 	
 }
