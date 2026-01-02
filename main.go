@@ -55,8 +55,6 @@ func display(output string) {
 }
 
 func getRandomOutput() string  {
-	rand.Seed(time.Now().UnixNano())
-
 	if rand.Intn(2) == 0 {
 		return "head"
 	} else {
